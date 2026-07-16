@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Gale Reef",
+    "image": "reef1.jpg",
+    "description": "Gale Reef offers a relaxing destination with beautiful ocean views and an unforgettable coastal experience."
+  },
+  {
+    "name": "Dawson's Reef",
+    "image": "reef2.jpg",
+    "description": "Dawson's Reef provides a peaceful getaway where travelers can enjoy clear water, warm weather, and natural beauty."
+  },
+  {
+    "name": "Claire's Reef",
+    "image": "reef3.jpg",
+    "description": "Claire's Reef is a welcoming island destination with scenic beaches and a calm atmosphere for visitors."
+  }
+]

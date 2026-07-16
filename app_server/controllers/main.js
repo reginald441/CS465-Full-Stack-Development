@@ -1,9 +1,14 @@
+const trips = require('../../data/trips.json');
+
 const home = (req, res) => {
-  res.render('index', { title: 'Travlr Getaways' });
+    res.render('index', { title: 'Travlr Getaways' });
 };
 
 const travel = (req, res) => {
-  res.render('travel', { title: 'Travel' });
+    res.render('travel', {
+        title: 'Travel',
+        trips: trips
+    });
 };
 
 const rooms = (req, res) => {
