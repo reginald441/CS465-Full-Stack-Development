@@ -3,10 +3,11 @@ const path = require('path');
 const hbs = require('hbs');
 
 // Connect to MongoDB
-require('./app_server/models/db');
+require('./app_api/models/db');
 
 // Routes
 const indexRouter = require('./app_server/routes/index');
+const apiRouter = require('./app_api/routes/index');
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,7 @@ app.use(express.static(__dirname));
 
 // Routes
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 
 // Start Server
 app.listen(port, () => {
