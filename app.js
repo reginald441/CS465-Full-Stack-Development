@@ -1,16 +1,24 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
+const cors = require('cors');
 
 // Connect to MongoDB
-require('./app_api/models/db');
+require('./app_server/models/db');
 
 // Routes
 const indexRouter = require('./app_server/routes/index');
-const apiRouter = require('./app_api/routes/index');
+const apiRouter = require('./app_server/routes/api');
 
 const app = express();
 const port = 3000;
+
+// Enable CORS
+app.use(cors());
+
+// Parse JSON
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // View Engine
 app.set('view engine', 'hbs');
