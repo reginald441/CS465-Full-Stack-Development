@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { Trip } from '../models/trip';
+import { AuthenticationService } from '../services/authentication';
 
 @Component({
   selector: 'app-trip-card',
@@ -15,7 +16,10 @@ export class TripCard {
 
   @Input() trip!: Trip;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public authenticationService: AuthenticationService
+  ) {}
 
   public editTrip(): void {
     localStorage.removeItem('tripCode');

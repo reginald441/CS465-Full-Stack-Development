@@ -3,13 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Trip } from '../models/trip';
+import { User } from '../models/user';
+import { AuthResponse } from '../models/auth-response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TripData {
 
-  private url = 'http://localhost:3000/api/trips';
+  private apiUrl = 'http://localhost:3000/api';
+  private url = `${this.apiUrl}/trips`;
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +35,20 @@ export class TripData {
       `${this.url}/${formData.code}`,
       formData
     );
+  }
+
+  public login(user: User, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, {
+      email: user.email,
+      password
+    });
+  }
+
+  public register(user: User, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}/register`, {
+      name: user.name,
+      email: user.email,
+      password
+    });
   }
 }

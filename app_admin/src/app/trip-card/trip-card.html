@@ -38,7 +38,7 @@
 
   </div>
 
-  <div class="card-footer">
+  <div class="card-footer" *ngIf="authenticationService.isLoggedIn()">
 
     <button
       class="btn btn-primary w-100"
